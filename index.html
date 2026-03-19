@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Art of Action – הכשרת מורי יוגה</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --sand: #f5f0e8;
+      --stone: #c8b89a;
+      --earth: #7a6a55;
+      --ink: #2a2118;
+      --white: #fdfcf9;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Assistant', sans-serif; background: var(--white); color: var(--ink); overflow-x: hidden; }
+
+```
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center;
+}
+.logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; letter-spacing: 0.12em; color: var(--white); }
+nav a { color: var(--white); text-decoration: none; font-size: 0.85rem; font-weight: 300; letter-spacing: 0.08em; opacity: 0.85; transition: opacity 0.2s; }
+nav a:hover { opacity: 1; }
+
+.hero { min-height: 100vh; background: var(--ink); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(122,106,85,0.35) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 80% 80%, rgba(200,184,154,0.12) 0%, transparent 60%); }
+.hero-circle { position: absolute; width: 520px; height: 520px; border-radius: 50%; border: 1px solid rgba(200,184,154,0.2); top: 50%; left: 50%; transform: translate(-50%, -50%); animation: breathe 6s ease-in-out infinite; }
+.hero-circle::before { content: ''; position: absolute; inset: 30px; border-radius: 50%; border: 1px solid rgba(200,184,154,0.12); animation: breathe 6s ease-in-out infinite reverse; }
+@keyframes breathe { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; } 50% { transform: translate(-50%, -50%) scale(1.04); opacity: 1; } }
+.hero-content { position: relative; text-align: center; padding: 2rem; animation: fadeUp 1.2s ease forwards; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.hero-eyebrow { font-size: 0.78rem; font-weight: 300; letter-spacing: 0.25em; color: var(--stone); text-transform: uppercase; margin-bottom: 1.5rem; }
+.hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 8vw, 6.5rem); font-weight: 300; color: var(--white); line-height: 1.05; margin-bottom: 0.3rem; }
+.hero-title em { font-style: italic; color: var(--stone); }
+.hero-subtitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 2.2vw, 1.4rem); font-weight: 300; color: rgba(245,240,232,0.6); margin-bottom: 3rem; letter-spacing: 0.04em; line-height: 1.7; }
+.hero-cta { display: inline-block; padding: 0.9rem 2.8rem; border: 1px solid var(--stone); color: var(--white); text-decoration: none; font-size: 0.85rem; font-weight: 400; letter-spacing: 0.15em; transition: background 0.3s, color 0.3s; }
+.hero-cta:hover { background: var(--stone); color: var(--ink); }
+.scroll-hint { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: rgba(200,184,154,0.5); font-size: 0.7rem; letter-spacing: 0.15em; animation: bounceY 2.5s ease-in-out infinite; }
+.scroll-hint::after { content: ''; width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(200,184,154,0.5), transparent); }
+@keyframes bounceY { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+.section-label { font-size: 0.72rem; letter-spacing: 0.25em; color: var(--earth); text-transform: uppercase; margin-bottom: 1.2rem; display: block; }
+
+.about-wrap { background: var(--sand); padding: 7rem 2rem; }
+.about { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.about h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 300; line-height: 1.25; margin-bottom: 1.5rem; }
+.about p { font-size: 1rem; font-weight: 300; line-height: 1.9; color: var(--earth); }
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+.stat-box { border: 1px solid rgba(200,184,154,0.5); padding: 1.2rem 1.5rem; }
+.stat-box .num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; line-height: 1; color: var(--ink); }
+.stat-box .lbl { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--earth); margin-top: 0.3rem; }
+
+.sessions-wrap { background: var(--white); padding: 7rem 2rem; }
+.sessions-inner { max-width: 900px; margin: 0 auto; }
+.sessions-inner h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 300; margin-bottom: 0.5rem; }
+.sessions-inner .sub { color: var(--earth); font-weight: 300; margin-bottom: 3.5rem; }
+.sessions-list { display: flex; flex-direction: column; gap: 2px; }
+.session-row { display: grid; grid-template-columns: 2.5rem 1fr auto; align-items: center; gap: 2rem; padding: 1.8rem 2rem; background: var(--sand); transition: background 0.2s; }
+.session-row:hover { background: #ece6d8; }
+.session-num { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; color: var(--stone); line-height: 1; }
+.session-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 400; margin-bottom: 0.25rem; }
+.session-info p { font-size: 0.85rem; color: var(--earth); font-weight: 300; }
+.session-tag { font-size: 0.72rem; letter-spacing: 0.12em; color: var(--earth); border: 1px solid var(--stone); padding: 0.3rem 0.8rem; white-space: nowrap; }
+
+.pricing-wrap { background: var(--sand); padding: 7rem 2rem; }
+.pricing-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+.pricing-inner h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 300; margin-bottom: 0.5rem; }
+.pricing-inner .sub { color: var(--earth); font-weight: 300; margin-bottom: 3.5rem; }
+.pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.price-card { border: 1px solid var(--stone); padding: 3rem 2rem; background: var(--white); position: relative; }
+.price-card.featured { background: var(--ink); border-color: var(--ink); }
+.price-badge { position: absolute; top: -1px; right: -1px; background: var(--stone); color: var(--ink); font-size: 0.68rem; letter-spacing: 0.15em; padding: 0.3rem 0.8rem; }
+.price-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; margin-bottom: 1.5rem; color: var(--ink); }
+.price-card.featured .price-title { color: var(--stone); }
+.price-amount { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; line-height: 1; color: var(--ink); }
+.price-card.featured .price-amount { color: var(--white); }
+.price-unit { font-size: 0.85rem; color: var(--earth); margin-top: 0.5rem; }
+.price-card.featured .price-unit { color: var(--stone); }
+.price-note { margin-top: 1.5rem; font-size: 0.82rem; color: var(--earth); font-weight: 300; line-height: 1.6; }
+.price-card.featured .price-note { color: rgba(200,184,154,0.7); }
+
+.instructor-wrap { background: var(--white); padding: 7rem 2rem; }
+.instructor-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start; }
+.instructor-visual { position: relative; aspect-ratio: 3/4; background: linear-gradient(135deg, rgba(200,184,154,0.2), rgba(200,184,154,0.05)); border: 1px solid var(--stone); display: flex; align-items: center; justify-content: center; }
+.instructor-visual::after { content: ''; position: absolute; top: 12px; left: -12px; right: 12px; bottom: -12px; border: 1px solid rgba(200,184,154,0.35); z-index: -1; }
+.instructor-placeholder { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; font-weight: 300; color: var(--stone); letter-spacing: 0.1em; text-align: center; padding: 1rem; }
+.instructor-info h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 2.6rem); font-weight: 300; line-height: 1.2; margin-bottom: 1.5rem; }
+.instructor-info h2 em { font-style: italic; color: var(--earth); }
+.instructor-info p { font-size: 1rem; font-weight: 300; line-height: 1.9; color: var(--earth); margin-bottom: 1rem; }
+.credentials { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.7rem; }
+.cred-item { display: flex; align-items: center; gap: 1rem; font-size: 0.88rem; font-weight: 300; color: var(--earth); }
+.cred-item::before { content: '✦'; color: var(--stone); font-size: 0.7rem; flex-shrink: 0; }
+
+.form-wrap { background: var(--ink); padding: 7rem 2rem; }
+.form-inner { max-width: 560px; margin: 0 auto; text-align: center; }
+.form-inner h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--white); margin-bottom: 0.5rem; }
+.form-inner .sub { color: var(--stone); font-weight: 300; margin-bottom: 3rem; font-size: 0.95rem; }
+.form-group { margin-bottom: 1.2rem; text-align: right; }
+.form-group label { display: block; font-size: 0.78rem; letter-spacing: 0.12em; color: var(--stone); margin-bottom: 0.5rem; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(200,184,154,0.3); color: var(--white); padding: 0.9rem 1.1rem; font-family: 'Assistant', sans-serif; font-size: 0.95rem; font-weight: 300; outline: none; transition: border-color 0.2s; direction: rtl; }
+.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(200,184,154,0.35); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--stone); }
+.form-group select option { background: var(--ink); }
+.form-group textarea { height: 90px; resize: none; }
+.submit-btn { width: 100%; margin-top: 1rem; padding: 1rem; background: var(--stone); color: var(--ink); border: none; font-family: 'Assistant', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.1em; cursor: pointer; transition: background 0.3s; }
+.submit-btn:hover { background: var(--sand); }
+.contact-line { margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid rgba(200,184,154,0.2); display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+.contact-item { text-align: center; }
+.contact-item .c-label { font-size: 0.72rem; letter-spacing: 0.2em; color: var(--stone); text-transform: uppercase; margin-bottom: 0.3rem; }
+.contact-item a, .contact-item span { color: var(--white); text-decoration: none; font-size: 0.92rem; font-weight: 300; }
+.contact-item a:hover { text-decoration: underline; }
+.success-msg { display: none; background: rgba(200,184,154,0.15); border: 1px solid var(--stone); padding: 1.5rem; text-align: center; margin-top: 1.5rem; color: var(--stone); font-size: 0.95rem; }
+
+footer { background: var(--ink); border-top: 1px solid rgba(200,184,154,0.1); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
+footer .logo-sm { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; color: var(--stone); letter-spacing: 0.1em; }
+footer p { font-size: 0.75rem; color: rgba(200,184,154,0.4); font-weight: 300; }
+
+@media (max-width: 700px) {
+  nav { padding: 1.2rem 1.5rem; }
+  .about, .instructor-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-stats { grid-template-columns: 1fr 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .session-row { grid-template-columns: 2rem 1fr; }
+  .session-tag { display: none; }
+  .contact-line { gap: 1.5rem; }
+  footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="logo">Art of Action</span>
+    <a href="#register">הרשמה לקורס</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-circle"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">קורס מעמיק למורי יוגה · פרדס חנה</p>
+      <h1 class="hero-title">Art of<br><em>Action</em></h1>
+      <p class="hero-subtitle">חמישה מפגשים. חמש משפחות תנוחות.<br>כלים שמשנים את ההוראה שלך.</p>
+      <a href="#register" class="hero-cta">הרשמה לקורס</a>
+    </div>
+    <div class="scroll-hint">גלול</div>
+  </section>
+
+  <div class="about-wrap">
+    <div class="about">
+      <div>
+        <span class="section-label">אודות הקורס</span>
+        <h2>פעולות מדויקות.<br>תלמידים שמתקדמים.</h2>
+        <p>הקורס מיועד למורי יוגה שרוצים להעמיק את ההבנה שלהם בתנוחות ולרכוש כלים מעשיים — כיצד לעזור לתלמידים להתקדם דרך הוראה מדויקת ומודעת.</p>
+        <p style="margin-top:1rem;">בכל מפגש נצלול לעומק אל משפחה אחת של תנוחות, נבין את המכניקה ואת הפיזיולוגיה, נחוש בגוף ונתרגל את ההנחיה.</p>
+        <div class="about-stats">
+          <div class="stat-box"><div class="num">5</div><div class="lbl">מפגשים</div></div>
+          <div class="stat-box"><div class="num">5h</div><div class="lbl">כל מפגש</div></div>
+          <div class="stat-box"><div class="num">מורים</div><div class="lbl">קהל יעד</div></div>
+          <div class="stat-box"><div class="num" style="font-size:1.5rem;">פרדס חנה</div><div class="lbl">מיקום</div></div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:1.5rem; margin-top:2rem;">
+        <span class="section-label">מה תרוויח</span>
+        <div style="border-right: 2px solid var(--stone); padding-right: 1.5rem;">
+          <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; color:var(--ink); margin-bottom:0.4rem;">הבנה עמוקה של התנוחות</p>
+          <p style="font-size:0.88rem;">מאנטומיה ומכניקה ועד לחוויה הפנימית</p>
+        </div>
+        <div style="border-right: 2px solid var(--stone); padding-right: 1.5rem;">
+          <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; color:var(--ink); margin-bottom:0.4rem;">כלים מעשיים להנחיה</p>
+          <p style="font-size:0.88rem;">טכניקות ידיים, הכוונה מילולית וסדרי עדיפויות</p>
+        </div>
+        <div style="border-right: 2px solid var(--stone); padding-right: 1.5rem;">
+          <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; color:var(--ink); margin-bottom:0.4rem;">תרגול עצמי מועמק</p>
+          <p style="font-size:0.88rem;">5 שעות של תרגול מרוכז בכל מפגש</p>
+        </div>
+        <div style="border-right: 2px solid var(--stone); padding-right: 1.5rem;">
+          <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; color:var(--ink); margin-bottom:0.4rem;">קהילת מורים</p>
+          <p style="font-size:0.88rem;">למידה הדדית בקבוצה קטנה ואינטימית</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sessions-wrap">
+    <div class="sessions-inner">
+      <span class="section-label">תוכן הקורס</span>
+      <h2>חמש משפחות תנוחות</h2>
+      <p class="sub">כל מפגש — יום שלם של חקירה מעמיקה · 5 שעות</p>
+      <div class="sessions-list">
+        <div class="session-row">
+          <div class="session-num">01</div>
+          <div class="session-info"><h3>תנוחות עמידה</h3><p>יציבות, שורש ועוצמה — הבסיס של כל פרקטיקה</p></div>
+          <span class="session-tag">5 שעות</span>
+        </div>
+        <div class="session-row">
+          <div class="session-num">02</div>
+          <div class="session-info"><h3>כפיפות לפנים</h3><p>מתיחה, שחרור והרחבה — עבודה עם עמוד השדרה</p></div>
+          <span class="session-tag">5 שעות</span>
+        </div>
+        <div class="session-row">
+          <div class="session-num">03</div>
+          <div class="session-info"><h3>כפיפות לאחור</h3><p>פתיחת החזה, חיזוק הגב ושחרור הלב</p></div>
+          <span class="session-tag">5 שעות</span>
+        </div>
+        <div class="session-row">
+          <div class="session-num">04</div>
+          <div class="session-info"><h3>פיתולים</h3><p>ניקוי, חיוניות ועבודה עם קו האמצע</p></div>
+          <span class="session-tag">5 שעות</span>
+        </div>
+        <div class="session-row">
+          <div class="session-num">05</div>
+          <div class="session-info"><h3>תנוחות הפוכות</h3><p>שינוי פרספקטיבה — פיזית ומנטלית</p></div>
+          <span class="session-tag">5 שעות</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pricing-wrap">
+    <div class="pricing-inner">
+      <span class="section-label" style="text-align:center;">עלות הקורס</span>
+      <h2>השקעה בהוראה שלך</h2>
+      <p class="sub">ניתן להשתתף במפגש בודד או לרכוש חבילה</p>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-title">מפגש בודד</div>
+          <div class="price-amount">480<span style="font-size:1.8rem;">₪</span></div>
+          <div class="price-unit">למפגש אחד</div>
+          <div class="price-note">גמישות מלאה — בחר את המפגש שמעניין אותך</div>
+        </div>
+        <div class="price-card featured">
+          <div class="price-badge">מומלץ</div>
+          <div class="price-title">חבילה מרובה</div>
+          <div class="price-amount">390<span style="font-size:1.8rem; color:var(--stone);">₪</span></div>
+          <div class="price-unit">למפגש · ברכישת מספר סדנאות</div>
+          <div class="price-note">חיסכון של 90₪ לסדנה<br>ניתן לרכוש כל שילוב של מפגשים</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="instructor-wrap">
+    <div class="instructor-inner">
+      <div class="instructor-visual">
+        <div class="instructor-placeholder">תמונה<br>של יונתן</div>
+      </div>
+      <div class="instructor-info">
+        <span class="section-label">המנחה</span>
+        <h2>יונתן קדם —<br><em>מורה. מטפל. חוקר.</em></h2>
+        <p>יונתן מלמד ומתרגל יוגה זה 20 שנה, ומביא לכל מפגש שילוב נדיר של עומק פנימי, הבנה גופנית ורגישות טיפולית.</p>
+        <p>גישתו מושרשת בעבודה מדויקת — פעולות קטנות שמייצרות שינויים גדולים בגוף ובהוראה.</p>
+        <div class="credentials">
+          <div class="cred-item">20 שנות תרגול והוראת יוגה</div>
+          <div class="cred-item">מטפל במגע</div>
+          <div class="cred-item">סטודנט לאוסטאופתיה</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="form-wrap" id="register">
+    <div class="form-inner">
+      <span class="section-label" style="color: var(--stone); text-align:center; display:block;">הרשמה</span>
+      <h2>מתחילים את הדרך</h2>
+      <p class="sub">מלא/י את הפרטים ויונתן יחזור אליך בהקדם</p>
+      <form id="contactForm">
+        <div class="form-group">
+          <label>שם מלא</label>
+          <input type="text" placeholder="השם שלך" required />
+        </div>
+        <div class="form-group">
+          <label>אימייל</label>
+          <input type="email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label>טלפון</label>
+          <input type="tel" placeholder="050-0000000" />
+        </div>
+        <div class="form-group">
+          <label>מפגשים שמעניינים אותך</label>
+          <select>
+            <option value="">בחר/י...</option>
+            <option>01 · תנוחות עמידה</option>
+            <option>02 · כפיפות לפנים</option>
+            <option>03 · כפיפות לאחור</option>
+            <option>04 · פיתולים</option>
+            <option>05 · תנוחות הפוכות</option>
+            <option>כל המפגשים</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>שאלות והערות</label>
+          <textarea placeholder="ניסיון, שאלות, כל מה שתרצה/י לשתף..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">שלח/י הרשמה</button>
+      </form>
+      <div class="success-msg" id="successMsg">✦ &nbsp; תודה! קיבלנו את הפרטים שלך. יונתן יחזור אליך בקרוב.</div>
+      <div class="contact-line">
+        <div class="contact-item"><p class="c-label">טלפון</p><a href="tel:+972503381083">050-338-1083</a></div>
+        <div class="contact-item"><p class="c-label">אימייל</p><a href="mailto:yoni.kedem@gmail.com">yoni.kedem@gmail.com</a></div>
+        <div class="contact-item"><p class="c-label">מיקום</p><span>פרדס חנה</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="logo-sm">Art of Action</span>
+    <p>© 2025 · יונתן קדם · קורס מורי יוגה</p>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
