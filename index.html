@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Art of Action – הכשרת מורי יוגה</title>
+  <title>Art of Action - קורס העמקה למורי יוגה</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -28,6 +28,7 @@ nav a { color: var(--white); text-decoration: none; font-size: 0.85rem; font-wei
 nav a:hover { opacity: 1; }
 
 .hero { min-height: 100vh; background: var(--ink); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.hero-photo { position: absolute; inset: 0; background-image: url('yonatan.jpeg'); background-size: cover; background-position: center top; opacity: 0.25; }
 .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(122,106,85,0.35) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 80% 80%, rgba(200,184,154,0.12) 0%, transparent 60%); }
 .hero-circle { position: absolute; width: 520px; height: 520px; border-radius: 50%; border: 1px solid rgba(200,184,154,0.2); top: 50%; left: 50%; transform: translate(-50%, -50%); animation: breathe 6s ease-in-out infinite; }
 .hero-circle::before { content: ''; position: absolute; inset: 30px; border-radius: 50%; border: 1px solid rgba(200,184,154,0.12); animation: breathe 6s ease-in-out infinite reverse; }
@@ -40,9 +41,6 @@ nav a:hover { opacity: 1; }
 .hero-subtitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 2.2vw, 1.4rem); font-weight: 300; color: rgba(245,240,232,0.6); margin-bottom: 3rem; letter-spacing: 0.04em; line-height: 1.7; }
 .hero-cta { display: inline-block; padding: 0.9rem 2.8rem; border: 1px solid var(--stone); color: var(--white); text-decoration: none; font-size: 0.85rem; font-weight: 400; letter-spacing: 0.15em; transition: background 0.3s, color 0.3s; }
 .hero-cta:hover { background: var(--stone); color: var(--ink); }
-.scroll-hint { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: rgba(200,184,154,0.5); font-size: 0.7rem; letter-spacing: 0.15em; animation: bounceY 2.5s ease-in-out infinite; }
-.scroll-hint::after { content: ''; width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(200,184,154,0.5), transparent); }
-@keyframes bounceY { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
 
 .section-label { font-size: 0.72rem; letter-spacing: 0.25em; color: var(--earth); text-transform: uppercase; margin-bottom: 1.2rem; display: block; }
 
@@ -86,15 +84,16 @@ nav a:hover { opacity: 1; }
 
 .instructor-wrap { background: var(--white); padding: 7rem 2rem; }
 .instructor-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start; }
-.instructor-visual { position: relative; aspect-ratio: 3/4; background: linear-gradient(135deg, rgba(200,184,154,0.2), rgba(200,184,154,0.05)); border: 1px solid var(--stone); display: flex; align-items: center; justify-content: center; }
+.instructor-visual { position: relative; aspect-ratio: 3/4; background: linear-gradient(135deg, rgba(200,184,154,0.2), rgba(200,184,154,0.05)); border: 1px solid var(--stone); display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .instructor-visual::after { content: ''; position: absolute; top: 12px; left: -12px; right: 12px; bottom: -12px; border: 1px solid rgba(200,184,154,0.35); z-index: -1; }
+.instructor-visual img { width: 100%; height: 100%; object-fit: cover; }
 .instructor-placeholder { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; font-weight: 300; color: var(--stone); letter-spacing: 0.1em; text-align: center; padding: 1rem; }
 .instructor-info h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 2.6rem); font-weight: 300; line-height: 1.2; margin-bottom: 1.5rem; }
 .instructor-info h2 em { font-style: italic; color: var(--earth); }
 .instructor-info p { font-size: 1rem; font-weight: 300; line-height: 1.9; color: var(--earth); margin-bottom: 1rem; }
 .credentials { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.7rem; }
 .cred-item { display: flex; align-items: center; gap: 1rem; font-size: 0.88rem; font-weight: 300; color: var(--earth); }
-.cred-item::before { content: '✦'; color: var(--stone); font-size: 0.7rem; flex-shrink: 0; }
+.cred-item::before { content: '\2736'; color: var(--stone); font-size: 0.7rem; flex-shrink: 0; }
 
 .form-wrap { background: var(--ink); padding: 7rem 2rem; }
 .form-inner { max-width: 560px; margin: 0 auto; text-align: center; }
@@ -142,128 +141,138 @@ footer p { font-size: 0.75rem; color: rgba(200,184,154,0.4); font-weight: 300; }
   </nav>
 
   <section class="hero">
+    <div class="hero-photo"></div>
     <div class="hero-bg"></div>
     <div class="hero-circle"></div>
     <div class="hero-content">
-      <p class="hero-eyebrow">קורס מעמיק למורי יוגה · פרדס חנה</p>
+      <p class="hero-eyebrow">קורס העמקה למורי יוגה</p>
       <h1 class="hero-title">Art of<br><em>Action</em></h1>
       <p class="hero-subtitle">חמישה מפגשים. חמש משפחות תנוחות.<br>כלים שמשנים את ההוראה שלך.</p>
       <a href="#register" class="hero-cta">הרשמה לקורס</a>
     </div>
-    <div class="scroll-hint">גלול</div>
   </section>
 
   <div class="about-wrap">
     <div class="about">
       <div>
-        <span class="section-label">אודות הקורס</span>
-        <h2>פעולות מדויקות.<br>תלמידים שמתקדמים.</h2>
-        <p>הקורס מיועד למורי יוגה שרוצים להעמיק את ההבנה שלהם בתנוחות ולרכוש כלים מעשיים — כיצד לעזור לתלמידים להתקדם דרך הוראה מדויקת ומודעת.</p>
-        <p style="margin-top:1rem;">בכל מפגש נצלול לעומק אל משפחה אחת של תנוחות, נבין את המכניקה ואת הפיזיולוגיה, נחוש בגוף ונתרגל את ההנחיה.</p>
-        <div class="about-stats">
-          <div class="stat-box"><div class="num">5</div><div class="lbl">מפגשים</div></div>
-          <div class="stat-box"><div class="num">5h</div><div class="lbl">כל מפגש</div></div>
-          <div class="stat-box"><div class="num">מורים</div><div class="lbl">קהל יעד</div></div>
-          <div class="stat-box"><div class="num" style="font-size:1.5rem;">פרדס חנה</div><div class="lbl">מיקום</div></div>
-        </div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:1.5rem; margin-top:2rem;">
-        <span class="section-label">מה תרוויח</span>
-        <div style="border-right: 2px solid var(--stone); padding-right: 1.5rem;">
-          <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; color:var(--ink); margin-bottom:0.4rem;">הבנה עמוקה של התנוחות</p>
-          <p style="font-size:0.88rem;">מאנטומיה ומכניקה ועד לחוויה הפנימית</p>
-        </div>
-        <div style="border-right: 2px solid var(--stone); padding-right: 1.5rem;">
-          <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; color:var(--ink); margin-bottom:0.4rem;">כלים מעשיים להנחיה</p>
-          <p style="font-size:0.88rem;">טכניקות ידיים, הכוונה מילולית וסדרי עדיפויות</p>
-        </div>
-        <div style="border-right: 2px solid var(--stone); padding-right: 1.5rem;">
-          <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; color:var(--ink); margin-bottom:0.4rem;">תרגול עצמי מועמק</p>
-          <p style="font-size:0.88rem;">5 שעות של תרגול מרוכז בכל מפגש</p>
-        </div>
-        <div style="border-right: 2px solid var(--stone); padding-right: 1.5rem;">
-          <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; color:var(--ink); margin-bottom:0.4rem;">קהילת מורים</p>
-          <p style="font-size:0.88rem;">למידה הדדית בקבוצה קטנה ואינטימית</p>
-        </div>
-      </div>
+
+```
+    <h2>פעולות מדויקות,<br>תלמידים שמתקדמים.</h2>
+    <p>הקורס מיועד למתרגלי יוגה ומתרגלים מנוסים שרוצים להעמיק את ההבנה שלהם בתנוחות ולרכוש כלים מעשיים — כיצד לעזור לתלמידים להתקדם דרך הוראה מדויקת ומודעת.</p>
+    <p style="margin-top:1rem;">בכל מפגש נצלול לעומק אל משפחה אחת של תנוחות, נבין את המכניקה ואת הפיזיולוגיה, נחוש בגוף ונתרגל את ההנחיה.</p>
+    <div class="about-stats">
+      <div class="stat-box"><div class="num">5</div><div class="lbl">מפגשים</div></div>
+      <div class="stat-box"><div class="num">5</div><div class="lbl">שעות כל מפגש</div></div>
+      <div class="stat-box"><div class="num" style="font-size:1.3rem;">פרדס חנה</div><div class="lbl">יש ממ"ד</div></div>
     </div>
+  </div>
+  <div style="display:flex; flex-direction:column; gap:1.5rem; margin-top:2rem;">
+    <div style="border-right: 2px solid var(--stone); padding-right: 1.5rem;">
+      <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; color:var(--ink); margin-bottom:0.4rem;">הבנה עמוקה של התנוחות</p>
+      <p style="font-size:0.88rem;">מאנטומיה ומכניקה ועד לחוויה הפנימית</p>
+    </div>
+    <div style="border-right: 2px solid var(--stone); padding-right: 1.5rem;">
+      <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; color:var(--ink); margin-bottom:0.4rem;">כלים מעשיים להנחיה</p>
+      <p style="font-size:0.88rem;">טכניקות ידיים, הכוונה מילולית וסדרי עדיפויות</p>
+    </div>
+    <div style="border-right: 2px solid var(--stone); padding-right: 1.5rem;">
+      <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; color:var(--ink); margin-bottom:0.4rem;">תרגול עצמי מועמק</p>
+      <p style="font-size:0.88rem;">5 שעות של תרגול מרוכז בכל מפגש</p>
+    </div>
+    <div style="border-right: 2px solid var(--stone); padding-right: 1.5rem;">
+      <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; color:var(--ink); margin-bottom:0.4rem;">קהילת מורים</p>
+      <p style="font-size:0.88rem;">למידה הדדית בקבוצה קטנה ואינטימית</p>
+    </div>
+  </div>
+</div>
+```
+
   </div>
 
   <div class="sessions-wrap">
     <div class="sessions-inner">
-      <span class="section-label">תוכן הקורס</span>
-      <h2>חמש משפחות תנוחות</h2>
-      <p class="sub">כל מפגש — יום שלם של חקירה מעמיקה · 5 שעות</p>
-      <div class="sessions-list">
-        <div class="session-row">
-          <div class="session-num">01</div>
-          <div class="session-info"><h3>תנוחות עמידה</h3><p>יציבות, שורש ועוצמה — הבסיס של כל פרקטיקה</p></div>
-          <span class="session-tag">5 שעות</span>
-        </div>
-        <div class="session-row">
-          <div class="session-num">02</div>
-          <div class="session-info"><h3>כפיפות לפנים</h3><p>מתיחה, שחרור והרחבה — עבודה עם עמוד השדרה</p></div>
-          <span class="session-tag">5 שעות</span>
-        </div>
-        <div class="session-row">
-          <div class="session-num">03</div>
-          <div class="session-info"><h3>כפיפות לאחור</h3><p>פתיחת החזה, חיזוק הגב ושחרור הלב</p></div>
-          <span class="session-tag">5 שעות</span>
-        </div>
-        <div class="session-row">
-          <div class="session-num">04</div>
-          <div class="session-info"><h3>פיתולים</h3><p>ניקוי, חיוניות ועבודה עם קו האמצע</p></div>
-          <span class="session-tag">5 שעות</span>
-        </div>
-        <div class="session-row">
-          <div class="session-num">05</div>
-          <div class="session-info"><h3>תנוחות הפוכות</h3><p>שינוי פרספקטיבה — פיזית ומנטלית</p></div>
-          <span class="session-tag">5 שעות</span>
-        </div>
-      </div>
+
+```
+  <h2>חמש משפחות תנוחות</h2>
+  <p class="sub">כל מפגש — יום שלם של חקירה מעמיקה · 5 שעות</p>
+  <div class="sessions-list">
+    <div class="session-row">
+      <div class="session-num">01</div>
+      <div class="session-info"><h3>תנוחות עמידה</h3><p>יציבות, שורש ועוצמה — הבסיס של כל פרקטיקה</p></div>
+      <span class="session-tag">5 שעות</span>
     </div>
+    <div class="session-row">
+      <div class="session-num">02</div>
+      <div class="session-info"><h3>כפיפות לפנים</h3><p>מתיחה, שחרור והרחבה — עבודה עם עמוד השדרה</p></div>
+      <span class="session-tag">5 שעות</span>
+    </div>
+    <div class="session-row">
+      <div class="session-num">03</div>
+      <div class="session-info"><h3>כפיפות לאחור</h3><p>פתיחת החזה, חיזוק הגב ושחרור הלב</p></div>
+      <span class="session-tag">5 שעות</span>
+    </div>
+    <div class="session-row">
+      <div class="session-num">04</div>
+      <div class="session-info"><h3>פיתולים</h3><p>ניקוי, חיוניות ועבודה עם קו האמצע</p></div>
+      <span class="session-tag">5 שעות</span>
+    </div>
+    <div class="session-row">
+      <div class="session-num">05</div>
+      <div class="session-info"><h3>תנוחות הפוכות</h3><p>שינוי פרספקטיבה — פיזית ומנטלית</p></div>
+      <span class="session-tag">5 שעות</span>
+    </div>
+  </div>
+</div>
+```
+
   </div>
 
   <div class="pricing-wrap">
     <div class="pricing-inner">
-      <span class="section-label" style="text-align:center;">עלות הקורס</span>
-      <h2>השקעה בהוראה שלך</h2>
-      <p class="sub">ניתן להשתתף במפגש בודד או לרכוש חבילה</p>
-      <div class="pricing-grid">
-        <div class="price-card">
-          <div class="price-title">מפגש בודד</div>
-          <div class="price-amount">480<span style="font-size:1.8rem;">₪</span></div>
-          <div class="price-unit">למפגש אחד</div>
-          <div class="price-note">גמישות מלאה — בחר את המפגש שמעניין אותך</div>
-        </div>
-        <div class="price-card featured">
-          <div class="price-badge">מומלץ</div>
-          <div class="price-title">חבילה מרובה</div>
-          <div class="price-amount">390<span style="font-size:1.8rem; color:var(--stone);">₪</span></div>
-          <div class="price-unit">למפגש · ברכישת מספר סדנאות</div>
-          <div class="price-note">חיסכון של 90₪ לסדנה<br>ניתן לרכוש כל שילוב של מפגשים</div>
-        </div>
-      </div>
+
+```
+  <h2>השקעה בהוראה שלך</h2>
+  <p class="sub">ניתן להשתתף במפגש בודד או לרכוש חבילה</p>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-title">מפגש בודד</div>
+      <div class="price-amount">480<span style="font-size:1.8rem;">&#8362;</span></div>
+      <div class="price-unit">למפגש אחד</div>
+      <div class="price-note">גמישות מלאה — בחר את המפגש שמעניין אותך</div>
     </div>
+    <div class="price-card featured">
+      <div class="price-badge">מומלץ</div>
+      <div class="price-title">חבילה מרובה</div>
+      <div class="price-amount">390<span style="font-size:1.8rem; color:var(--stone);">&#8362;</span></div>
+      <div class="price-unit">למפגש · ברכישת מספר סדנאות</div>
+      <div class="price-note">חיסכון של 90&#8362; לסדנה<br>ניתן לרכוש כל שילוב של מפגשים</div>
+    </div>
+  </div>
+</div>
+```
+
   </div>
 
   <div class="instructor-wrap">
     <div class="instructor-inner">
       <div class="instructor-visual">
-        <div class="instructor-placeholder">תמונה<br>של יונתן</div>
+        <img src="yonatan-portrait.jpeg" alt="יונתן קדם" />
       </div>
       <div class="instructor-info">
-        <span class="section-label">המנחה</span>
-        <h2>יונתן קדם —<br><em>מורה. מטפל. חוקר.</em></h2>
-        <p>יונתן מלמד ומתרגל יוגה זה 20 שנה, ומביא לכל מפגש שילוב נדיר של עומק פנימי, הבנה גופנית ורגישות טיפולית.</p>
-        <p>גישתו מושרשת בעבודה מדויקת — פעולות קטנות שמייצרות שינויים גדולים בגוף ובהוראה.</p>
-        <div class="credentials">
-          <div class="cred-item">20 שנות תרגול והוראת יוגה</div>
-          <div class="cred-item">מטפל במגע</div>
-          <div class="cred-item">סטודנט לאוסטאופתיה</div>
-        </div>
-      </div>
+
+```
+    <h2>יונתן קדם —<br><em>מורה. מטפל. חוקר.</em></h2>
+    <p>יונתן מלמד ומתרגל יוגה זה 20 שנה, ומביא לכל מפגש שילוב נדיר של עומק פנימי, הבנה גופנית ורגישות טיפולית.</p>
+    <p>גישתו מושרשת בעבודה מדויקת — פעולות קטנות שמייצרות שינויים גדולים בגוף ובהוראה.</p>
+    <div class="credentials">
+      <div class="cred-item">20 שנות תרגול והוראת יוגה</div>
+      <div class="cred-item">מטפל במגע</div>
+      <div class="cred-item">סטודנט לאוסטאופתיה</div>
     </div>
+  </div>
+</div>
+```
+
   </div>
 
   <section class="form-wrap" id="register">
@@ -272,22 +281,21 @@ footer p { font-size: 0.75rem; color: rgba(200,184,154,0.4); font-weight: 300; }
       <h2>מתחילים את הדרך</h2>
       <p class="sub">מלא/י את הפרטים ויונתן יחזור אליך בהקדם</p>
       <form id="contactForm" action="https://formspree.io/f/mnjgwodr" method="POST">
-
         <div class="form-group">
           <label>שם מלא</label>
           <input type="text" name="name" placeholder="השם שלך" required />
         </div>
         <div class="form-group">
           <label>אימייל</label>
-          <input type="email״ name="email" placeholder="your@email.com" required />
+          <input type="email" name="email" placeholder="your@email.com" required />
         </div>
         <div class="form-group">
           <label>טלפון</label>
-          <input type="tel" placeholder="050-0000000" />
+          <input type="tel" name="phone" placeholder="050-0000000" />
         </div>
         <div class="form-group">
           <label>מפגשים שמעניינים אותך</label>
-          <select>
+          <select name="sessions">
             <option value="">בחר/י...</option>
             <option>01 · תנוחות עמידה</option>
             <option>02 · כפיפות לפנים</option>
@@ -299,21 +307,18 @@ footer p { font-size: 0.75rem; color: rgba(200,184,154,0.4); font-weight: 300; }
         </div>
         <div class="form-group">
           <label>שאלות והערות</label>
-          <textarea placeholder="ניסיון, שאלות, כל מה שתרצה/י לשתף..."></textarea>
+          <textarea name="message" placeholder="ניסיון, שאלות, כל מה שתרצה/י לשתף..."></textarea>
         </div>
         <button type="submit" class="submit-btn">שלח/י הרשמה</button>
       </form>
-      <div class="success-msg" id="successMsg">✦ &nbsp; תודה! קיבלנו את הפרטים שלך. יונתן יחזור אליך בקרוב.</div>
+      <div class="success-msg" id="successMsg">&#10022; &nbsp; תודה! קיבלנו את הפרטים שלך. יונתן יחזור אליך בקרוב.</div>
       <div class="contact-line">
         <div class="contact-item"><p class="c-label">טלפון</p><a href="tel:+972503381083">050-338-1083</a></div>
-        <div class="contact-item"><p class="c-label">אימייל</p><a href="mailto:yoni.kedem@gmail.com">yoni.kedem@gmail.com</a></div>
+        <div class="contact-item"><p class="c-label">אימייל</p><a href="/cdn-cgi/l/email-protection#532a3c3d3a7d383637363e13343e323a3f7d303c3e"><span class="__cf_email__" data-cfemail="176e78797e397c7273727a57707a767e7b3974787a">[email&#160;protected]</span></a></div>
         <div class="contact-item"><p class="c-label">מיקום</p><span>פרדס חנה</span></div>
       </div>
     </div>
   </section>
 
   <footer>
-    <span class="logo-sm">Art of Action</span>
-    <p>© 2025 · יונתן קדם · קורס מורי יוגה</p>
-  </footer>
-
+    <span cla
