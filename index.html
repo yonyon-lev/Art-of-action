@@ -42,6 +42,8 @@ nav a:hover { opacity: 1; }
 .hero-subtitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 2.2vw, 1.4rem); font-weight: 300; color: rgba(245,240,232,0.6); margin-bottom: 3rem; letter-spacing: 0.04em; line-height: 1.7; }
 .hero-cta { display: inline-block; padding: 0.9rem 2.8rem; border: 1px solid var(--stone); color: var(--white); text-decoration: none; font-size: 0.85rem; font-weight: 400; letter-spacing: 0.15em; transition: background 0.3s, color 0.3s; }
 .hero-cta:hover { background: var(--stone); color: var(--ink); }
+.pricing-cta { background: var(--ink); color: var(--white); border-color: var(--ink); font-weight: 600; }
+.pricing-cta:hover { background: var(--earth); border-color: var(--earth); color: var(--white); }
 
 .section-label { font-size: 0.72rem; letter-spacing: 0.25em; color: var(--earth); text-transform: uppercase; margin-bottom: 1.2rem; display: block; }
 
@@ -136,7 +138,7 @@ footer p { font-size: 0.75rem; color: rgba(200,184,154,0.4); font-weight: 300; }
 
   <nav>
     <span class="logo">Art of Action</span>
-    <a href="#register">הרשמה לקורס</a>
+    <a href="#register">השארת פרטים</a>
   </nav>
 
   <section class="hero">
@@ -148,7 +150,7 @@ footer p { font-size: 0.75rem; color: rgba(200,184,154,0.4); font-weight: 300; }
       <h1 class="hero-title">Art of<br><em>Action</em></h1>
       <p class="hero-subtitle">חמישה מפגשים. חמש משפחות תנוחות.<br>כלים שמשנים את ההוראה שלך.</p>
       <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(0.85rem,1.8vw,1.1rem); color:rgba(200,184,154,0.55); margin-bottom:2rem; font-style:italic; line-height:1.8; max-width:480px; margin-left:auto; margin-right:auto;">"זכותך רק בפעולה עצמה, לעולם לא בפירותיה"<br><span style="font-size:0.8em; letter-spacing:0.1em;">— בהגווד גיטה</span></p>
-      <a href="#register" class="hero-cta">הרשמה לקורס</a>
+      <a href="#register" class="hero-cta">השארת פרטים</a>
     </div>
   </section>
 
@@ -156,9 +158,10 @@ footer p { font-size: 0.75rem; color: rgba(200,184,154,0.4); font-weight: 300; }
     <div class="about">
       <div>
         <h2>פעולות מדויקות,<br>תלמידים שמתקדמים.</h2>
-        <p>הקורס מיועד למתרגלי יוגה ומתרגלים מנוסים שרוצים להעמיק את ההבנה שלהם בתנוחות ולרכוש כלים מעשיים - כיצד לעזור לתלמידים להתקדם דרך הוראה מדויקת ומודעת.</p>
+        <p>הקורס מיועד למורי יוגה ולמתרגלים מנוסים שרוצים להעמיק את ההבנה שלהם בתנוחות ולרכוש כלים מעשיים - כיצד לעזור לתלמידים להתקדם דרך הוראה מדויקת ומודעת.</p>
         <p style="margin-top:1rem; font-style:italic; color:var(--ink); font-family:'Cormorant Garamond',serif; font-size:1.1rem; line-height:1.8;">תנוחה היא לא סטטית - היא אוסף של אינספור פעולות קטנות, וקטורים של כוח והתנגדות, שיוצרים יחד יציבות ונינוחות.</p>
         <p style="margin-top:1rem;">בכל מפגש נצלול לעומק אל משפחה אחת של תנוחות, נבין את המכניקה ואת הפיזיולוגיה, נחוש בגוף ונתרגל את ההנחיה.</p>
+        <p style="margin-top:1rem;">תנועה מביאה אותנו אל התנוחה. פעולה ממשיכה לפעול בתוכה, גם כשכבר אין תנועה שנראית לעין. דרך המפגש עם הקרקע וההקשבה לתגובה של הגוף נלמד מתי להעמיק פעולה, מתי לאזן אותה ומתי דווקא להמתין.</p>
         <div class="about-stats">
           <div class="stat-box"><div class="num">5</div><div class="lbl">מפגשים</div></div>
           <div class="stat-box"><div class="num">5</div><div class="lbl">שעות כל מפגש</div></div>
@@ -190,13 +193,6 @@ footer p { font-size: 0.75rem; color: rgba(200,184,154,0.4); font-weight: 300; }
     <div class="sessions-inner">
       <h2>חמש משפחות תנוחות</h2>
       <p class="sub">כל מפגש - יום שלם של חקירה מעמיקה · 5 שעות</p>
-      <div style="background:var(--ink); color:var(--white); padding:1.2rem 2rem; margin-bottom:2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
-        <div>
-          <p style="font-size:0.72rem; letter-spacing:0.2em; color:var(--stone); margin-bottom:0.3rem;">המפגש הקרוב</p>
-          <p style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:300;">תנוחות הפוכות · שבת 30.5.26 | 10:00–15:00</p>
-        </div>
-        <a href="#register" style="border:1px solid var(--stone); color:var(--white); text-decoration:none; padding:0.6rem 1.5rem; font-size:0.82rem; letter-spacing:0.1em; white-space:nowrap;">הרשמה</a>
-      </div>
       <div class="sessions-list">
         <div class="session-row">
           <div class="session-num">01</div>
@@ -230,25 +226,9 @@ footer p { font-size: 0.75rem; color: rgba(200,184,154,0.4); font-weight: 300; }
   <div class="pricing-wrap">
     <div class="pricing-inner">
       <h2>השקעה בהוראה שלך</h2>
-      <p class="sub">ניתן להשתתף במפגש בודד או לרכוש חבילה</p>
-      <div class="pricing-grid">
-        <div class="price-card">
-          <div class="price-title">מפגש בודד</div>
-          <div class="price-amount">420<span style="font-size:1.8rem;">&#8362;</span></div>
-          <div class="price-unit">למפגש אחד</div>
-          <div class="price-note">בחר את המפגש המתאים לך</div>
-        </div>
-        <div class="price-card featured">
-          <div class="price-badge">מומלץ</div>
-          <div class="price-title">חבילה מרובה</div>
-          <div class="price-amount">390<span style="font-size:1.8rem; color:var(--stone);">&#8362;</span></div>
-          <div class="price-unit">למפגש · ברכישת מספר סדנאות</div>
-          <div class="price-note">חיסכון של 30&#8362; לסדנה<br>ניתן לרכוש כל שילוב של מפגשים</div>
-        </div>
-      </div>
-      <div style="text-align:center; margin-top:2.5rem;">
-        <a href="https://links.payboxapp.com/m54T8lUtj1b" target="_blank" style="display:inline-block; padding:0.9rem 2.8rem; background:var(--ink); color:var(--white); text-decoration:none; font-size:0.85rem; font-weight:600; letter-spacing:0.15em; border:1px solid var(--stone);">תשלום</a>
-      </div>
+      <p class="sub">אפשר להשתתף במפגש בודד או בסדרה</p>
+      <p class="sub">פרטי המחירים וההרשמה למפגשים הבאים יתעדכנו בקרוב.</p>
+      <a href="#register" class="hero-cta pricing-cta" style="margin-top:1rem; background:#2a2118; color:#ffffff; border-color:#2a2118; font-weight:600;">השאירו פרטים לעדכון</a>
     </div>
   </div>
 
@@ -274,8 +254,8 @@ footer p { font-size: 0.75rem; color: rgba(200,184,154,0.4); font-weight: 300; }
   <section class="form-wrap" id="register">
     <div class="form-inner">
       <span class="section-label" style="color: var(--stone); text-align:center; display:block;">הרשמה</span>
-      <h2>מתחילים את הדרך</h2>
-      <p class="sub">מלא/י את הפרטים ויונתן יחזור אליך בהקדם</p>
+      <h2>נשארים בקשר</h2>
+      <p class="sub">מלאו את הפרטים ואחזור אליכם כשייקבעו המועדים הבאים</p>
       <form id="contactForm" action="https://formspree.io/f/mnjgwodr" method="POST">
         <div class="form-group">
           <label>שם מלא</label>
@@ -305,12 +285,9 @@ footer p { font-size: 0.75rem; color: rgba(200,184,154,0.4); font-weight: 300; }
           <label>שאלות והערות</label>
           <textarea name="message" placeholder="ניסיון, שאלות, כל מה שתרצה/י לשתף..."></textarea>
         </div>
-        <button type="submit" class="submit-btn">שלח/י הרשמה</button>
+        <button type="submit" class="submit-btn">שלח/י פרטים</button>
       </form>
-      <div class="success-msg" id="successMsg">✶ &nbsp; תודה! קיבלנו את הפרטים שלך. יונתן יחזור אליך בקרוב.</div>
-      <div style="text-align:center; margin-top:2rem;">
-        <a href="https://links.payboxapp.com/m54T8lUtj1b" target="_blank" style="display:inline-block; padding:0.9rem 2.8rem; background:var(--stone); color:var(--ink); text-decoration:none; font-size:0.85rem; font-weight:600; letter-spacing:0.15em;">תשלום</a>
-      </div>
+      <div class="success-msg" id="successMsg">✶ &nbsp; תודה! קיבלתי את הפרטים שלך ואעדכן אותך בהמשך.</div>
       <div class="contact-line">
         <div class="contact-item">
           <a href="tel:+972503381083">
