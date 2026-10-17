@@ -42,7 +42,7 @@
 <body>
 <main id="setup" class="setup">
 <div class="eyebrow">יונתן קדם · צילום תוכן</div><h1>טלפרומפטר לרילס</h1>
-<p class="lede">הדבק טקסט ולחץ על צילום. הסרטון יהיה אנכי, והטקסט יופיע מולך בלבד.</p>
+<p class="lede">הדבק טקסט, פתח את המצלמה וסדר את הפריים. לאחר מכן לחץ על הקלטה. הטקסט לא יופיע בסרטון.</p>
 <label for="script" class="field-label">הטקסט שלך</label><textarea class="script" id="script" spellcheck="true" placeholder="הדבק כאן את הטקסט שאתה רוצה לומר..." aria-label="טקסט להקראה"></textarea>
 <details class="more" id="moreSettings"><summary>התאמות מתקדמות: גלילה, גודל טקסט ומצלמה</summary><div class="settings">
  <div class="panel"><div class="panel-head"><label for="speed">מהירות גלילה</label><span class="value" id="speedValue">45</span></div><input id="speed" type="range" min="0" max="150" step="5" value="45"></div>
@@ -64,7 +64,7 @@
  <label for="micSelect" class="mic-label">מקור שמע (כשהדפדפן מאפשר לבחור)</label><select id="micSelect" aria-label="בחירת מיקרופון"><option value="">מיקרופון ברירת המחדל</option></select>
  <div id="camMessage" class="message" role="status" aria-live="polite"></div>
 </div>
-</details><button class="primary" id="start" type="button">● צלם ריל אנכי</button>
+</details><button class="primary" id="start" type="button">◉ פתח מצלמה ותצוגה</button>
 <p class="note">בפעם הראשונה אשר מצלמה ומיקרופון. הסרטון נשאר במכשיר עד שתבחר לשמור או לשתף אותו. מומלץ לצלם כשהאייפון עומד לאורך.</p>
 </main>
 <section id="player" class="player hidden" aria-label="מסך טלפרומפטר וצילום">
@@ -112,7 +112,7 @@
   for(const [key,el] of [['video','videoMode'],['mirror','mirrorToggle'],['align','alignToggle'],['countdown','countToggle']])$(el).setAttribute('aria-pressed',String(prefs[key]));
   $('countToggle').textContent=prefs.countdown?'3 שניות לפני התחלה':'ללא ספירה לאחור';
   $('cameraSetup').classList.toggle('hidden',!prefs.video);$('cameraSwitchSetup').disabled=!prefs.video;
-  $('start').textContent=prefs.video?'● צלם ריל אנכי':'▶ הפעל טלפרומפטר ללא מצלמה';
+  $('start').textContent=prefs.video?'◉ פתח מצלמה ותצוגה':'▶ הפעל טלפרומפטר ללא מצלמה';
   $('stage').classList.toggle('mirror',prefs.mirror);$('stage').classList.toggle('align-right',prefs.align);
   $('cameraView').classList.toggle('rear',prefs.facing==='environment');
   $('testPreview').style.transform=prefs.facing==='user'?'scaleX(-1)':'none';
@@ -178,7 +178,7 @@
   save();pause();countToken++;hideError();$('reader').textContent=$('script').value.trim()||'חזור לעריכה והכנס טקסט.';
   $('stage').scrollTop=0;$('setup').classList.add('hidden');$('player').classList.remove('hidden');$('recClock').textContent='00:00';sync();
   if(prefs.video){
-   try{if(!stream)await startCamera();await beginRecording()}
+   try{if(!stream)await startCamera();showError('בדוק שהפריים מתאים לך, ואז לחץ על ״התחל הקלטה״.');}
    catch(e){showError(describeError(e))}
   }else if(await countdown())play();
  };
