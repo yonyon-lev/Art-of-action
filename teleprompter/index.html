@@ -178,7 +178,7 @@
   save();pause();countToken++;hideError();$('reader').textContent=$('script').value.trim()||'חזור לעריכה והכנס טקסט.';
   $('stage').scrollTop=0;$('setup').classList.add('hidden');$('player').classList.remove('hidden');$('recClock').textContent='00:00';sync();
   if(prefs.video){
-   try{if(!stream)await startCamera();showError('בדוק שהפריים מתאים לך, ואז לחץ על ״התחל הקלטה״.');}
+   try{if(!stream)await startCamera();hideError();}
    catch(e){showError(describeError(e))}
   }else if(await countdown())play();
  };
