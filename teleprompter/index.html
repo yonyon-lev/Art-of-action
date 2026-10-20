@@ -37,13 +37,14 @@
 #record{min-height:61px}
 #record.recording{background:#efb0a5}
 @media(max-width:390px){.script{min-height:190px}.player-foot .speed-row{margin-bottom:5px}}
+.script-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 9px}.script-toolbar .field-label{margin:0}.clear-script{border:1px solid var(--border);background:var(--panel2);color:var(--ink);border-radius:9px;padding:7px 11px;min-height:38px;font-size:13px;font-weight:700}
 </style>
 </head>
 <body>
 <main id="setup" class="setup">
 <div class="eyebrow">יונתן קדם · צילום תוכן</div><h1>טלפרומפטר לרילס</h1>
 <p class="lede">הדבק טקסט, פתח את המצלמה וסדר את הפריים. לאחר מכן לחץ על הקלטה. הטקסט לא יופיע בסרטון.</p>
-<label for="script" class="field-label">הטקסט שלך</label><textarea class="script" id="script" spellcheck="true" placeholder="הדבק כאן את הטקסט שאתה רוצה לומר..." aria-label="טקסט להקראה"></textarea>
+<div class="script-toolbar"><label for="script" class="field-label">הטקסט שלך</label><button type="button" id="clearScript" class="clear-script" aria-label="נקה את כל הטקסט">✕ נקה טקסט</button></div><textarea class="script" id="script" spellcheck="true" placeholder="הדבק כאן את הטקסט שאתה רוצה לומר..." aria-label="טקסט להקראה"></textarea>
 <details class="more" id="moreSettings"><summary>התאמות מתקדמות: גלילה, גודל טקסט ומצלמה</summary><div class="settings">
  <div class="panel"><div class="panel-head"><label for="speed">מהירות גלילה</label><span class="value" id="speedValue">45</span></div><input id="speed" type="range" min="0" max="150" step="5" value="45"></div>
  <div class="panel"><div class="panel-head"><label for="fontSize">גודל טקסט</label><span class="value" id="fontValue">48</span></div><input id="fontSize" type="range" min="24" max="92" step="2" value="48"></div>
@@ -119,6 +120,7 @@
   $('record').classList.toggle('hidden',!prefs.video);$('switchCam').classList.toggle('hidden',!prefs.video);
  }
  sync();$('script').addEventListener('input',save);
+ $('clearScript').onclick=()=>{$('script').value='';save();$('script').focus()};
  $('speed').addEventListener('input',e=>{prefs.speed=+e.target.value;sync();save()});$('liveSpeed').addEventListener('input',e=>{prefs.speed=+e.target.value;sync();save()});
  $('fontSize').addEventListener('input',e=>{prefs.font=+e.target.value;sync();save()});$('veilAmount').addEventListener('input',e=>{prefs.veil=+e.target.value;sync();save()});
  function toggle(key){prefs[key]=!prefs[key];sync();save()}
